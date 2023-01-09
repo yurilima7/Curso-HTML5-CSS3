@@ -1,0 +1,17 @@
+h1 { /*Box-Level*/
+    background-color: lightblue;
+    height: 300px;
+    width: 300px;
+
+    border: 10px solid darkslateblue;
+
+    padding: 10px;
+
+    margin: 20px auto 40px auto;
+
+    outline: 5px dashed salmon;
+}
+
+a {/*Inline-level*/
+    border: 10px solid red;
+}
