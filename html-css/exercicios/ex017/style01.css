@@ -1,0 +1,16 @@
+body {
+    font-family: 'Courier New';
+    /*Medidas Absolutas
+        cm, mm, in, 'px', pt, pc
+    */
+
+    /*Medidas Relativas
+        'em', ex, rem, vw, vh, %
+        16px geralmente = 1em
+    */
+    font-size: 1em;
+}
+
+/* h1, h2 {
+    font-family: 'Times New Roman', Times, serif;
+} */
