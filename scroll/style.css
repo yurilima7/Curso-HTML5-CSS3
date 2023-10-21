@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    border-radius: 26px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 16px;
+    padding: 0px 20px;
+    height: 60px;
+    margin-top: 10px;
+}
+
+.filters {
+    overflow-x: auto;
+    display: flex;
+    margin-right: calc(60px + 10px);
+}
+
+a {
+    margin-right: 10px;
+    white-space: nowrap;
+    position: relative;
+}
+
+.more-filters-button {
+    position: fixed;
+    background-color: #141A5E;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    right: 26px;
+}
+
+.filters::-webkit-scrollbar {
+    height: 10px;
+}
+
+.filters::-webkit-scrollbar-thumb {
+    background-color: #141A5E;
+    border-radius: 10px;
+}
+
+.filters::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
