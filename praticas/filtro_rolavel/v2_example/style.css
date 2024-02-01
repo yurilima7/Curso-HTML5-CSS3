@@ -1,0 +1,131 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 0 10px;
+    min-height: 100vh;
+    background: #1D1D1D;
+}
+
+.wrapper {
+    display: flex;
+    overflow-x: hidden;
+    padding: 35px 0;
+    max-width: 1000px;
+}
+
+.wrapper .icon {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 120px;
+}
+
+.icon:first-child {
+    display: none;
+    margin-right: 5px;
+}
+
+.icon:last-child {
+    justify-content: flex-end;
+    margin-left: 5px;
+}
+
+.icon i {
+    cursor: pointer;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    font-size: 1.2rem;
+    line-height: 55px;
+    border-radius: 50%;
+    background: #efedfb;
+}
+
+.icon:first-child i {
+    margin-left: 15px;
+} 
+
+.icon:last-child i {
+    margin-right: 15px;
+}
+
+.wrapper .tabs-box {
+    display: flex;
+    list-style: none;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.tabs-box.dragging {
+    scroll-behavior: auto;
+    cursor: grab;
+}
+
+.tabs-box .tab {
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 1.18rem;
+    padding: 13px 20px;
+    color: #FFF;
+    border-right: 1px solid #D9D9D9;
+}
+
+.tabs-box .tab:last-child {
+    border-right: none;
+}
+
+.tabs-box .tab:hover {
+    color: #3D64D9;
+}
+
+.tabs-box.dragging .tab {
+    user-select: none;
+    pointer-events: none;
+}
+
+.tabs-box .tab.active{
+    color: #3D64D9;
+    border-bottom: 3px solid #3D64D9;
+}
+
+.filter {
+    padding: 35px 0;
+    margin-right: 15px;
+}
+
+.filter i {
+    cursor: pointer;
+    text-align: center;
+    width: 122px;
+    height: 55px;
+    font-size: 1.2rem;
+    line-height: 55px;
+    border-radius: 20px;
+    background: #efedfb;
+}
+
+.filterNew {
+    padding: 35px 0;
+}
+
+.filterNew i {
+    cursor: pointer;
+    text-align: center;
+    width: 68px;
+    height: 55px;
+    font-size: 1.2rem;
+    line-height: 45px;
+    border-radius: 20px;
+    background: #efedfb;
+}
