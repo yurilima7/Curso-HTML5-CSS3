@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Slider Tabs</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Your content here -->
+    <div x-data="{ activeTab: 0, startX: 0, currentX: 0, scrollLeft: 0 }">
+        <div class="flex items-center space-x-2 border-b border-gray-200 overflow-x-auto">
+            <!-- Botão de rolagem para a esquerda -->
+            <button @click="scrollLeft -= 100" class="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:outline-none">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.41 10L14 1.41L12.59 0L2 10l10.59 10L14 18.59L5.41 10z"/>
+                </svg>
+            </button>
+            <!-- Tabs -->
+            <template x-for="(tab, index) in ['Todos', 'Eletrônicos', 'Roupas', 'Livros', 'Casa e Decoração', 'Esportes e Fitness', 'Smartphones', 'Smartwatch', 'TVs', 'Games', 'Produtos Naturais', 'Brinquedos']" :key="index">
+                <div class="flex-shrink-0 cursor-pointer py-2 px-4 text-center"
+                    :class="{ 'bg-white': activeTab === index, 'bg-gray-200': activeTab !== index }"
+                    @click="activeTab = index">
+                    <span x-text="tab"></span>
+                </div>
+            </template>
+            <!-- Botão de rolagem para a direita -->
+            <button @click="scrollLeft += 100" class="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:outline-none">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.41 10L14 1.41L12.59 0L2 10l10.59 10L14 18.59L5.41 10z" transform="rotate(180 10 10)"/>
+                </svg>
+            </button>
+        </div>
+    
+        <div class="overflow-x-auto whitespace-nowrap" :scroll-left="scrollLeft">
+            <div class="flex" x-on:mousedown="startX = $event.pageX, currentX = $event.pageX"
+                x-on:mousemove="currentX = $event.pageX - startX"
+                x-on:mouseup="startX = 0, currentX = 0">
+                <template x-for="(tab, index) in ['Todos', 'Eletrônicos', 'Roupas', 'Livros', 'Casa e Decoração', 'Esportes e Fitness', 'Smartphones', 'Smartwatch', 'TVs', 'Games', 'Produtos Naturais', 'Brinquedos']" :key="index">
+                    <div class="flex-shrink-0 w-full" x-show="activeTab === index">
+                        <div class="p-4 border border-gray-200">
+                            <p x-text="tab"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div x-data="{ activeTab: 0, startX: 0, currentX: 0 }">
+        <div class="flex border-b border-gray-200 overflow-x-auto">
+            <template x-for="(tab, index) in ['Todos', 'Eletrônicos', 'Roupas', 'Livros', 'Casa e Decoração', 'Esportes e Fitness', 'Smartphones', 'Smartwatch', 'TVs', 'Games', 'Produtos Naturais', 'Brinquedos']" :key="index">
+                <div class="flex-shrink-0 cursor-pointer py-2 px-4 text-center"
+                    :class="{ 'bg-white': activeTab === index, 'bg-gray-200': activeTab !== index }"
+                    @click="activeTab = index">
+                    <span x-text="tab"></span>
+                </div>
+            </template>
+        </div>
+    
+        <div class="overflow-x-auto whitespace-nowrap">
+            <div class="flex" x-on:mousedown="startX = $event.pageX, currentX = $event.pageX"
+                x-on:mousemove="currentX = $event.pageX - startX"
+                x-on:mouseup="startX = 0, currentX = 0">
+                <template x-for="(tab, index) in ['Todos', 'Eletrônicos', 'Roupas', 'Livros', 'Casa e Decoração', 'Esportes e Fitness', 'Smartphones', 'Smartwatch', 'TVs', 'Games', 'Produtos Naturais', 'Brinquedos']" :key="index">
+                    <div class="flex-shrink-0 w-full" x-show="activeTab === index">
+                        <div class="p-4 border border-gray-200">
+                            <p x-text="tab"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div> -->
+    
+    <!-- <div x-data="{ activeTab: 0, startX: 0, currentX: 0 }">
+        <div class="flex border-b border-gray-200">
+            <template x-for="(tab, index) in ['Tab 1', 'Tab 2', 'Tab 3']" :key="index">
+                <div class="flex-1 cursor-pointer py-2 px-4 text-center"
+                    :class="{ 'bg-white': activeTab === index, 'bg-gray-200': activeTab !== index }"
+                    @click="activeTab = index">
+                    <span x-text="tab"></span>
+                </div>
+            </template>
+        </div>
+    
+        <div class="overflow-x-auto whitespace-nowrap">
+            <div class="flex" style="min-width: 600px;" x-on:mousedown="startX = $event.pageX, currentX = $event.pageX"
+                x-on:mousemove="currentX = $event.pageX - startX"
+                x-on:mouseup="startX = 0, currentX = 0, activeTab = Math.max(0, Math.min(activeTab + (currentX > 50 ? -1 : (currentX < -50 ? 1 : 0)), 2))">
+                <template x-for="(tab, index) in ['Content 1', 'Content 2', 'Content 3']" :key="index">
+                    <div class="flex-shrink-0 w-full" x-show="activeTab === index">
+                        <div class="p-4 border border-gray-200">
+                            <p x-text="tab"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div> -->
+    
+</body>
+</html>
