@@ -1,4 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    height: 100vh; /* Garante a ocupação de toda a tela */
+    box-sizing: border-box; /* Evita que imagens filhas saiam do body */
     background-color: #000;
     color: #F6F6F6;
+}
+
+.titulo-destaque {
+    color: #22D4fD;
+}
+
+.apresentacao {
+    display: flex;
+    align-items: center;
 }
