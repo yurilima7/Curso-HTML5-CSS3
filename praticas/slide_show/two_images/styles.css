@@ -1,0 +1,103 @@
+* { 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #2d2d2d;
+}
+
+.slideshow-container {
+    display: flex;
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.slide {
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    width: 100%;
+    flex: 1;
+    padding: 0 16px;
+}
+
+.image {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .slide {
+        flex: 1 100%;
+    }
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Botões de navegação */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 50%;
+    margin-top: -22px;
+    color: white;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;
+    text-align: center;
+}
+
+.prev {
+    left: 0px;
+    border-radius: 3px 0 0 3px;
+}
+
+.next {
+    right: 0px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 50%;
+}
+
+.dot-container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    gap: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: #3D634D;
+}
+  
