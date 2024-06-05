@@ -1,0 +1,28 @@
+/* .overflow-x-auto::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+    background: #ccc;
+}
+  
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #999;
+}
+   */
+
+ /* Ocultar a barra de rolagem */
+ .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  * {
+    margin: 0;
+    padding: 0px;
+    text-decoration: none;
+    border: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
