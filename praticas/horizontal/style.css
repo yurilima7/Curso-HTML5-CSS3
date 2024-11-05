@@ -10,7 +10,7 @@ body {
     flex-direction: row;
     width: 400vw; /* Define a largura total */
     height: 100vh;
-    transition: transform 0.6s ease; /* Transição suave entre as seções */
+    transition: transform 1.5s ease; /* Transição suave entre as seções */
 }
 
 /* Cada seção dentro do contêiner */

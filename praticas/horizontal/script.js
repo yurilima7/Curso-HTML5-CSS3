@@ -8,9 +8,7 @@ function scrollToSection(sectionIndex) {
     scrollContainer.style.transform = `translateX(-${sectionIndex * sectionWidth}px)`;
 }
 
-// Evento de rolagem do mouse
-window.addEventListener("wheel", (event) => {
-    event.preventDefault(); // Impede a rolagem padrão
+function nextSection(event) {
     if (!isThrottled) {
         isThrottled = true; // Ativa o controle de tempo
 
@@ -27,6 +25,18 @@ window.addEventListener("wheel", (event) => {
                 currentSection--;
                 scrollToSection(currentSection);
             }
+        } else if (event.key === "ArrowRight") {
+            // Seta para direita (próxima seção)
+            if (currentSection < scrollContainer.children.length - 1) {
+                currentSection++;
+                scrollToSection(currentSection);
+            }
+        } else if (event.key === "ArrowLeft") {
+            // Seta para esquerda (seção anterior)
+            if (currentSection > 0) {
+                currentSection--;
+                scrollToSection(currentSection);
+            }
         }
 
         // Define o tempo de espera antes de liberar para nova rolagem
@@ -34,6 +44,17 @@ window.addEventListener("wheel", (event) => {
             isThrottled = false;
         }, 600); // Ajuste o tempo para controlar a frequência (em milissegundos)
     }
+}
+
+// Evento de rolagem do mouse
+window.addEventListener("wheel", (event) => {
+    event.preventDefault(); // Impede a rolagem padrão
+    nextSection(event);
+});
+
+// Evento de teclado
+window.addEventListener("keydown", (event) => {
+    nextSection(event);
 });
 
 // Ajusta o índice da seção ao redimensionar a janela
