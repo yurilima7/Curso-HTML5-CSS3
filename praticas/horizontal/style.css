@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Desabilita rolagem vertical */
+    font-family: Arial, sans-serif;
+}
+
+/* Contêiner principal */
+.horizontal-scroll-container {
+    display: flex;
+    flex-direction: row;
+    width: 400vw; /* Define a largura total */
+    height: 100vh;
+    transition: transform 0.6s ease; /* Transição suave entre as seções */
+}
+
+/* Cada seção dentro do contêiner */
+.section {
+    min-width: 100vw; /* Largura da tela inteira */
+    height: 100vh; /* Altura da tela inteira */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+/* Estilo das seções */
+.section1 { background-color: #3498db; }
+.section2 { background-color: #e74c3c; }
+.section3 { background-color: #2ecc71; }
+.section4 { background-color: #f1c40f; }
